@@ -1,0 +1,21 @@
+# All types of virtualenvs
+.direnv/
+.venv/
+.env/
+venv/
+
+# Always
+__pycache__/
+
+# IDEs
+.vscode/
+.idea/
+
+# Mac
+.DS_Store
+
+# replit
+replit.nix
+
+# Because replit uses an incompatible version of poetry
+poetry.lock
