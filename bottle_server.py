@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-from datasource_info import retrieve_datasource_query
+from retrieve_datasource_query import retrieve_datasource_query
 from bottle import route, run, static_file, request
 
 

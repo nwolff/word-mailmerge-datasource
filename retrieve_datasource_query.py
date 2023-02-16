@@ -1,5 +1,8 @@
+#!/usr/bin/env python
+
 from zipfile import ZipFile
-import xml.etree.ElementTree as ET
+import xml.etree.ElementTree as ElementTree
+import argparse
 
 word_ns = "http://schemas.openxmlformats.org/wordprocessingml/2006/main"
 
@@ -16,7 +19,21 @@ def retrieve_datasource_query(file):
     """
     with ZipFile(file) as docx_as_zip:
         with docx_as_zip.open("word/settings.xml") as settings:
-            root = ET.parse(settings).getroot()
+            root = ElementTree.parse(settings).getroot()
             query_node = root.find("w:mailMerge/w:query", {"w": word_ns})
             if query_node is not None:
                 return query_node.attrib[f"{{{word_ns}}}val"]
+
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(
+        description="Retrieves a mail merge datasource information (including filters and sorts)"
+    )
+    parser.add_argument(
+        "file",
+        metavar="FILE",
+        help="The path to a .docx mail merge file",
+    )
+    args = parser.parse_args()
+    ds_query = retrieve_datasource_query(args.file)
+    print(ds_query or "No Datasource info found")

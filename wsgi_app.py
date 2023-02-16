@@ -1,4 +1,4 @@
-from datasource_info import retrieve_datasource_query
+from retrieve_datasource_query import retrieve_datasource_query
 import cgi
 
 
