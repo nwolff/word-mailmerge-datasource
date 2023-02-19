@@ -13,9 +13,3 @@ __pycache__/
 
 # Mac
 .DS_Store
-
-# replit
-replit.nix
-
-# Because replit uses an incompatible version of poetry
-poetry.lock
