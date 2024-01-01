@@ -1,15 +1,18 @@
-# All types of virtualenvs
-.direnv/
-.venv/
-.env/
-venv/
-
-# Always
-__pycache__/
-
 # IDEs
-.vscode/
+*.iml
 .idea/
+.vscode/
 
-# Mac
-.DS_Store
+# npm
+package.json
+package-lock.json
+node_modules/
+
+# Elm
+elm-stuff/
+elm.js
+repl-temp-*
+
+# Our build setup
+target/
+
