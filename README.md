@@ -1,17 +1,31 @@
-## What this does
+Deployed to:
 
-When reopening a word mailmerge file and the backing excel file is not in the
-expected location, then you will lose the filters and sort that were set.
+https://nwolff.github.io/word-mailmerge-datasource/
 
-This tool shows the filter and sort information of a mailmerge docx file, it looks like this :
+---
 
-    SELECT * FROM /Users/wolff_n/Desktop/clients 10 ans.xlsx
-    WHERE ((Carte_Club_4Vallées = 'oui')) ORDER BY Nom
+Requires elm0.19.1
 
-## Running the online webapp
+To install elm without being a sudoer:
 
-https://word-mailmerge-datasource-yjvahykdxa-oa.a.run.app/
+    npm install elm
 
-## Running from the command-line
+To develop:
 
-`./retrieve_datasource_query.py` takes the path to a docx or dotx file and displays the datasource query
+    elm reactor
+
+Or if you've installed elm-live:
+
+    elm-live src/Main.elm --open -- --output target/elm.js --debug
+
+To build:
+
+    elm make src/Main.elm --output target/elm.js
+
+To review the code you need to install elm-review, then:
+
+    elm-review --template jfmengels/elm-review-config/application
+
+Deployed automatically upon push to main:
+
+Using https://github.com/isaacvando/elm-to-gh-pages
