@@ -96,7 +96,7 @@ retrieveMailmergeQuery : Zip -> MailmergeQuery
 retrieveMailmergeQuery zip =
     Zip.getEntry "word/settings.xml" zip
         |> fromMaybe "No settings.xml zip entry in file"
-        |> andThen (Entry.toString >> Result.mapError (\_ -> "Cannot retrieve settings.xml zip entry contents"))
+        |> andThen (Entry.toString >> Result.mapError (\_ -> "Cannot retrieve word/settings.xml zip entry contents"))
         |> andThen (run mergeQueryDecoder >> Result.mapError (\_ -> "Cannot retrieve merge query (make sure you upload an unmerged file)"))
         |> (\result ->
                 case result of

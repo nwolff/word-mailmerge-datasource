@@ -6,24 +6,18 @@ Usage statistics collected with umami.js
 
 ---
 
-Requires elm0.19.1
+Install elm tools:
 
-To install elm without being a sudoer:
-
-    npm install elm
+    npm install elm elm-format elm-live elm-review
 
 To develop:
 
-    elm reactor
-
-Or if you've installed elm-live:
-
-    elm-live src/Main.elm --open -- --output target/elm.js --debug
+    npx elm-live src/Main.elm --open -- --output target/elm.js --debug
 
 To build:
 
-    elm make src/Main.elm --output target/elm.js
+    npx elm make src/Main.elm --output target/elm.js
 
-To review the code you need to install elm-review, then:
+To review the code:
 
-    elm-review --template jfmengels/elm-review-config/application
+    npx elm-review --template jfmengels/elm-review-config/application
