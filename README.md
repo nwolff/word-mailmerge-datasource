@@ -21,3 +21,7 @@ To build:
 To review the code:
 
     npx elm-review --template jfmengels/elm-review-config/application
+
+Finding outdated packages:
+
+    npx elm-json upgrade
